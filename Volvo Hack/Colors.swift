@@ -16,4 +16,7 @@ struct Colors {
     static let vDivider = Color(hex: "EBEBEB")
     static let bonusesColor = Color(hex: "FFE8AD")
     static let bonusesColorText = Color(hex: "CCA55D")
+    static let myRatingBG = Color(hex: "E8F3CA")
+    static let myRatingText = Color(hex: "83915D")
+    static let myRatingTextBalance = Color(hex: "87AF23")
 }
