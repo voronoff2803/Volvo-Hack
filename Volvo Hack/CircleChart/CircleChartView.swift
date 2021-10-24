@@ -3,7 +3,7 @@
 //  CircularProgressView
 //
 //  Created by Mahdi
-//
+// withAnimation
 
 import SwiftUI
 
@@ -67,7 +67,7 @@ struct CircleChartView: View {
         /// Controllers
         
         
-            .animation(.easeInOut.speed(0.5))
+            .animation(.none)
             .onChange(of: progress) { newValue in
                 /// Progress == 0 might result in animation errors.
                 if newValue == 0 { progress = 0.001 }

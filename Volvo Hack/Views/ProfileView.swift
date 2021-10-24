@@ -14,138 +14,147 @@ struct ProfileView: View {
     @State var isAchievmentsShowing: Bool = false
     
     var body: some View {
-        ScrollView {
-            Spacer()
-            HStack(spacing: 20) {
-                Image("volvoCar")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 180, height: 140)
-                VStack(alignment: .leading, spacing: 20) {
-                    HStack {
-                        ZStack {
-                            Image("fuel")
-                                .foregroundColor(Colors.vDivider)
-                            CircleChartView(tintColot: Colors.vGreen, pointHidden: false, progress: $fuelProgress)
-                        }
-                        .offset(x: -8, y: 0)
-                        
-                        VStack(alignment: .leading) {
-                            HStack(alignment: .bottom) {
-                                Text("7.1")
-                                    .font(.system(size: 22, weight: .medium))
-                                Text("л/100км")
-                                    .font(.system(size: 12, weight: .regular))
-                                    .offset(x: 0, y: -2)
-                            }
-                            
-                            Text("Меньше чем 74%\nпользователей")
-                                .font(.system(size: 11, weight: .regular))
-                                .foregroundColor(Colors.vGray)
-                        }
-                    }
-                    HStack {
-                        ZStack {
-                            Image("car")
-                                .foregroundColor(Colors.vDivider)
-                            CircleChartView(tintColot: Colors.cBlue, pointHidden: true, progress: $carProgress)
-                        }
-                        .offset(x: -8, y: 0)
-                        
-                        VStack(alignment: .leading) {
-                            HStack(alignment: .bottom) {
-                                Text("4.2")
-                                    .font(.system(size: 22, weight: .medium))
-                            }
-                            
-                            Text("Аккуратность вождения")
-                                .font(.system(size: 11, weight: .regular))
-                                .foregroundColor(Colors.vGray)
-                        }
-                    }
-                }
-                .padding()
-            }
-            VStack(alignment: .leading, spacing: 5) {
-                Text("Александр Филимонов")
-                    .font(.system(size: 28, weight: .medium))
-                
-                HStack {
-                    Text("Я езжу на")
-                        .font(.system(size: 15, weight: .regular))
-                    Text("Volvo XC90")
-                        .font(.system(size: 15, weight: .bold))
-                    Spacer()
-                }
-                .foregroundColor(Colors.vGray)
-                
-                Spacer(minLength: 20)
-                
-                HStack {
-                        HStack {
-                            Image("award")
-                                .frame(width: 24, height: 24)
-                                .padding(6)
-                            VStack(alignment: .leading) {
-                                Text("379")
-                                    .font(.system(size: 38, weight: .semibold))
-                                Text("Баллы")
-                                    .font(.system(size: 15, weight: .regular))
-                                    .foregroundColor(Colors.vGray)
-                            }
-                        }
-                        Spacer()
-                        HStack {
-                            Image("ranking")
-                                .frame(width: 24, height: 24)
-                                .padding(6)
-                            VStack(alignment: .leading) {
-                                Text("1859")
-                                    .font(.system(size: 38, weight: .semibold))
-                                Text("Место в рейтинге")
-                                    .font(.system(size: 15, weight: .regular))
-                                    .foregroundColor(Colors.vGray)
-                            }
-                        }
-                }
-                .frame(height: 80)
-                .padding()
-                .background(Color.white)
-                .cornerRadius(12)
-                .shadow(color: .black.opacity(0.15), radius: 18, x: 0, y: 6)
-                Spacer(minLength: 25)
-                Divider()
-                    .padding(.horizontal, -20)
-                Spacer(minLength: 30)
-                HStack {
-                    Text("Достижения")
-                        .font(.system(size: 20, weight: .semibold))
-                    Spacer()
-                    Image("chevron")
-                        .frame(width: 16, height: 16)
-                        .foregroundColor(.black)
-                }
-                .onTapGesture {
-                    isAchievmentsShowing.toggle()
-                }
-                
+        NavigationView {
+            ScrollView {
                 Spacer()
-                
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(alignment: .top, spacing: 20) {
-                        AchivementView(color: Color.green, imageName: "ach1", title: "В гармонии с природой")
-                        AchivementView(color: Color.blue, imageName: "ach2", title: "Вокруг света")
-                        AchivementView(color: Color.red, imageName: "ach3", title: "Прямиком к Луне")
-                        AchivementView(color: Color.gray, imageName: "ach4", title: "Покоритель дорог")
+                HStack(spacing: 20) {
+                    Image("volvoCar")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 180, height: 140)
+                    VStack(alignment: .leading, spacing: 20) {
+                        HStack {
+                            ZStack {
+                                Image("fuel")
+                                    .foregroundColor(Colors.vDivider)
+                                CircleChartView(tintColot: Colors.vGreen, pointHidden: false, progress: $fuelProgress)
+                            }
+                            .offset(x: -8, y: 0)
+                            
+                            VStack(alignment: .leading) {
+                                HStack(alignment: .bottom) {
+                                    Text("7.1")
+                                        .font(.system(size: 22, weight: .medium))
+                                    Text("л/100км")
+                                        .font(.system(size: 12, weight: .regular))
+                                        .offset(x: 0, y: -2)
+                                }
+                                
+                                Text("Меньше чем 74%\nпользователей")
+                                    .font(.system(size: 11, weight: .regular))
+                                    .foregroundColor(Colors.vGray)
+                            }
+                        }
+                        HStack {
+                            ZStack {
+                                Image("car")
+                                    .foregroundColor(Colors.vDivider)
+                                CircleChartView(tintColot: Colors.cBlue, pointHidden: true, progress: $carProgress)
+                            }
+                            .offset(x: -8, y: 0)
+                            
+                            VStack(alignment: .leading) {
+                                HStack(alignment: .bottom) {
+                                    Text("4.2")
+                                        .font(.system(size: 22, weight: .medium))
+                                }
+                                
+                                Text("Аккуратность вождения")
+                                    .font(.system(size: 11, weight: .regular))
+                                    .foregroundColor(Colors.vGray)
+                            }
+                        }
                     }
-                    .padding(16)
+                    .padding()
+                }
+                VStack(alignment: .leading, spacing: 5) {
+                    Text("Александр Филимонов")
+                        .font(.system(size: 28, weight: .medium))
+                    
+                    HStack {
+                        Text("Я езжу на")
+                            .font(.system(size: 15, weight: .regular))
+                        Text("Volvo XC90")
+                            .font(.system(size: 15, weight: .bold))
+                        Spacer()
+                    }
+                    .foregroundColor(Colors.vGray)
+                    
+                    Spacer(minLength: 20)
+                    NavigationLink(destination: ShopView()) {
+                    HStack {
+                            HStack {
+                                Image("award")
+                                    .frame(width: 24, height: 24)
+                                    .padding(6)
+                                    .foregroundColor(Colors.cBlue)
+                                VStack(alignment: .leading) {
+                                    Text("379")
+                                        .foregroundColor(.black)
+                                        .font(.system(size: 38, weight: .semibold))
+                                    Text("Баллы")
+                                        .font(.system(size: 15, weight: .regular))
+                                        .foregroundColor(Colors.vGray)
+                                }
+                            }
+                            Spacer()
+                            HStack {
+                                Image("ranking")
+                                    .frame(width: 24, height: 24)
+                                    .padding(6)
+                                    .foregroundColor(Colors.cBlue)
+                                VStack(alignment: .leading) {
+                                    Text("1859")
+                                        .foregroundColor(.black)
+                                        .font(.system(size: 38, weight: .semibold))
+                                    Text("Место в рейтинге")
+                                        .font(.system(size: 15, weight: .regular))
+                                        .foregroundColor(Colors.vGray)
+                                }
+                            }
+                    }
+                    }
+                    .frame(height: 80)
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(12)
+                    .shadow(color: .black.opacity(0.15), radius: 18, x: 0, y: 6)
+                    Spacer(minLength: 25)
+                    Divider()
+                        .padding(.horizontal, -20)
+                    Spacer(minLength: 30)
+                    HStack {
+                        Text("Достижения")
+                            .font(.system(size: 20, weight: .semibold))
+                        Spacer()
+                        Image("chevron")
+                            .frame(width: 16, height: 16)
+                            .foregroundColor(.black)
+                    }
                     .onTapGesture {
                         isAchievmentsShowing.toggle()
                     }
-                }.padding(-16)
-                //Spacer()
+                    
+                    Spacer()
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(alignment: .top, spacing: 20) {
+                            AchivementView(color: Color.green, imageName: "ach1", title: "В гармонии с природой")
+                            AchivementView(color: Color.blue, imageName: "ach2", title: "Вокруг света")
+                            AchivementView(color: Color.red, imageName: "ach3", title: "Прямиком к Луне")
+                            AchivementView(color: Color.gray, imageName: "ach4", title: "Покоритель дорог")
+                        }
+                        .padding(16)
+                        .onTapGesture {
+                            isAchievmentsShowing.toggle()
+                        }
+                    }.padding(-16)
+                    //Spacer()
+                }
+                .padding()
             }
-            .padding()
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
         }
         .sheet(isPresented: $isAchievmentsShowing) {
             AchievmentsView()

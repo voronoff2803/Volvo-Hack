@@ -22,7 +22,7 @@ struct ContentView: View {
                         case "Лента":
                             FeedView()
                         case "Рейтинг":
-                            Text("Рейтинг")
+                            RatingView()
                         case "Профиль":
                             ProfileView()
                         default:

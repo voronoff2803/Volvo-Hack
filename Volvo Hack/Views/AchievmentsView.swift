@@ -19,7 +19,7 @@ struct AchievmentsView: View {
             Divider()
                 .padding(.horizontal, -18)
             ScrollView {
-                VStack {
+                VStack(spacing: 20) {
                     ForEach(DemoData.achievments, id: \.title) { achievment in
                         AchivementViewItem(achievment: achievment)
                     }
@@ -86,7 +86,7 @@ struct AchivementViewItem: View {
             .padding()
             .background(Color.white)
             .cornerRadius(12)
-            .shadow(color: .black.opacity(0.15), radius: 25, x: 0, y: 8)
+            .shadow(color: .black.opacity(0.11), radius: 19, x: 0, y: 8)
             
         }
     }
